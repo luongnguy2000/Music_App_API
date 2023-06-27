@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email, To, Content
 
-SENDGRID_API_KEY = "your_sendgrid_api_key_here"
+SENDGRID_API_KEY = os.getenv.SENDGRID_API_KEY
 
 sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
 
