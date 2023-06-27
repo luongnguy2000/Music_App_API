@@ -13,16 +13,16 @@ from services.auth import (
 )
 from services.send_email import send_email
 
-router = APIRouter()
+artist_router = APIRouter()
 
 
-@router.get("/artists", response_model=List[Artists])
+@artist_router.get("/artists/", response_model=List[Artists])
 async def get_all_artists(skip: 0, limit: int = 100, db: Session = Depends(get_db)):
     artists = db.query(Artist).offset(skip).limit(limit).all()
     return artists
 
 
-@router.post("/artists")
+@artist_router.post("/artists/")
 async def create_artists(artist: ArtistCreated, db: Session = Depends(get_db)):
     artists = db.query(Artist).filter(Artist.name == artist.name).first()
     if artists:
