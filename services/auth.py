@@ -2,7 +2,7 @@ import jwt
 from passlib.context import CryptContext
 import os
 
-SECRET_KEY = os.getenv.SECRET_KEY
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 
 def create_access_token(data: dict):
